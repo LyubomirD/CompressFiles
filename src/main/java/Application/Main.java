@@ -1,6 +1,14 @@
 package Application;
 
-import Application.GUI.Interaction.AppLabels;
+import Application.Files.OutputFile;
+import Application.GUI.Interactions.AppButtonCompress;
+import Application.GUI.Interactions.AppButtonDecompress;
+import Application.GUI.Interactions.InteractionOne.AppButtonsOne;
+import Application.GUI.Interactions.InteractionOne.AppLabelOne;
+import Application.GUI.Interactions.InteractionOne.AppTextFieldsOne;
+import Application.GUI.Interactions.IntercationTwo.AppButtonsTwo;
+import Application.GUI.Interactions.IntercationTwo.AppLabelTwo;
+import Application.GUI.Interactions.IntercationTwo.AppTextFieldsTwo;
 import Application.GUI.Visibility.AppDimensions;
 import Application.GUI.Visibility.AppFrame;
 import Application.GUI.Visibility.AppPanel;
@@ -10,31 +18,22 @@ import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-//        File sourceFile = new File("/Users/lubodimoff/Desktop/output.wav");
-//        File destinationFile = new File("/Users/lubodimoff/Desktop/output1.wav");
-//
-//        InputFile inputFile = new InputFile(new FileInputStream(sourceFile));
-//        OutputFile outputFile = new OutputFile(new FileOutputStream(destinationFile));
+    public static void main(String[] args) {
+        AppDimensions dimensions = new AppDimensions(415, 250);
 
-        AppDimensions dimensions = new AppDimensions(415, 500);
-        AppLabels appLabels = new AppLabels(new JLabel());
-        AppPanel appPanel = new AppPanel(new JPanel(), dimensions, appLabels);
+        AppLabelOne appLabelOne = new AppLabelOne(new JLabel());
+        AppTextFieldsOne appTextFieldsOne = new AppTextFieldsOne(new JTextField(20));
+        AppButtonsOne appButtonsOne = new AppButtonsOne(new JButton(), appTextFieldsOne, new JFileChooser());
+
+        AppLabelTwo appLabelTwo = new AppLabelTwo(new JLabel());
+        AppTextFieldsTwo appTextFieldsTwo = new AppTextFieldsTwo(new JTextField(20));
+        AppButtonsTwo appButtonsTwo = new AppButtonsTwo(new JButton(), appTextFieldsTwo, new JFileChooser());
+
+        AppButtonCompress appButtonCompress = new AppButtonCompress(new JButton(), appTextFieldsOne, appTextFieldsTwo);
+        AppButtonDecompress appButtonDecompress = new AppButtonDecompress(new JButton(), appTextFieldsOne, appTextFieldsTwo);
+
+        AppPanel appPanel = new AppPanel(new JPanel(), dimensions, appLabelOne, appTextFieldsOne, appButtonsOne, appLabelTwo,appTextFieldsTwo, appButtonsTwo, appButtonCompress, appButtonDecompress);
         AppFrame appFrame = new AppFrame(new JFrame(), appPanel, dimensions);
-
-//        Scanner scanner = new Scanner(System.in);
-//        int choice = scanner.nextInt();
-//        if (choice == 1) {
-//            ZipOutput zipOutput = new ZipOutput(new GZIPOutputStream(outputFile.getFileOutputStream()));
-//            CompressFile compress = new CompressFile(inputFile, outrputFile, zipOutput);
-//        } else {
-//            ZipInput zipInput = new ZipInput(new GZIPInputStream(inputFile.getFileInputStream()));
-//            DecompressFile decompress = new DecompressFile(inputFile, outputFile, zipInput);
-//        }
-
-
-
-
     }
 }
 
