@@ -1,21 +1,16 @@
-package Application.GUI.Interactions.InteractionOne;
-
-import Application.Files.InputFile;
-import org.w3c.dom.ls.LSOutput;
+package Application.GUI.Interactions.InteractionS.InteractionInput;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
-public class AppTextFieldsOne extends JTextField {
+public class AppTextFieldsInput extends JTextField {
 
     private final JTextField jTextField;
 
 
 
-    public AppTextFieldsOne(JTextField jTextField) {
+    public AppTextFieldsInput(JTextField jTextField) {
         this.jTextField = jTextField;
 
         setJTextField();
@@ -26,7 +21,6 @@ public class AppTextFieldsOne extends JTextField {
     }
 
     private void setJTextField() {
-        jTextField.setBounds(100, 10, 300, 20);
         checkTextChanges();
     }
 

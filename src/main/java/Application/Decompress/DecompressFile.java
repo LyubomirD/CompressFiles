@@ -17,7 +17,6 @@ public class DecompressFile {
         this.zipInput = zipInput;
 
         decompress();
-        System.out.println("File has been decompressed!");
     }
 
     private void decompress() throws IOException {

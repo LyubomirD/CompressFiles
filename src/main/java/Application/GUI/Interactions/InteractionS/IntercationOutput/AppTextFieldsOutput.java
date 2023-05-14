@@ -1,19 +1,15 @@
-package Application.GUI.Interactions.IntercationTwo;
-
-import Application.Files.OutputFile;
+package Application.GUI.Interactions.InteractionS.IntercationOutput;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 
-public class AppTextFieldsTwo extends JTextField {
+public class AppTextFieldsOutput extends JTextField {
 
     private final JTextField jTextField;
 
 
-    public AppTextFieldsTwo(JTextField jTextField) {
+    public AppTextFieldsOutput(JTextField jTextField) {
         this.jTextField = jTextField;
 
         setJTextField();
@@ -24,7 +20,6 @@ public class AppTextFieldsTwo extends JTextField {
     }
 
     private void setJTextField() {
-        jTextField.setBounds(100, 60, 300, 20);
         checkTextChanges();
     }
 

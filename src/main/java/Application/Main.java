@@ -1,39 +1,51 @@
 package Application;
 
-import Application.Files.OutputFile;
-import Application.GUI.Interactions.AppButtonCompress;
-import Application.GUI.Interactions.AppButtonDecompress;
-import Application.GUI.Interactions.InteractionOne.AppButtonsOne;
-import Application.GUI.Interactions.InteractionOne.AppLabelOne;
-import Application.GUI.Interactions.InteractionOne.AppTextFieldsOne;
-import Application.GUI.Interactions.IntercationTwo.AppButtonsTwo;
-import Application.GUI.Interactions.IntercationTwo.AppLabelTwo;
-import Application.GUI.Interactions.IntercationTwo.AppTextFieldsTwo;
+import Application.GUI.Interactions.ActionButtons.AppButtonCompress;
+import Application.GUI.Interactions.ActionButtons.AppButtonDecompress;
+import Application.GUI.Interactions.InteractionS.InteractionInput.AppButtonsInput;
+import Application.GUI.Interactions.InteractionS.InteractionInput.AppLabelInput;
+import Application.GUI.Interactions.InteractionS.InteractionInput.AppTextFieldsInput;
+import Application.GUI.Interactions.InteractionS.IntercationOutput.AppButtonsOutput;
+import Application.GUI.Interactions.InteractionS.IntercationOutput.AppLabelOutput;
+import Application.GUI.Interactions.InteractionS.IntercationOutput.AppTextFieldsOutput;
 import Application.GUI.Visibility.AppDimensions;
 import Application.GUI.Visibility.AppFrame;
 import Application.GUI.Visibility.AppPanel;
 
 import javax.swing.*;
-import java.io.*;
+import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        AppDimensions dimensions = new AppDimensions(415, 250);
+        AppDimensions dimensions = new AppDimensions(280, 275);
 
-        AppLabelOne appLabelOne = new AppLabelOne(new JLabel());
-        AppTextFieldsOne appTextFieldsOne = new AppTextFieldsOne(new JTextField(20));
-        AppButtonsOne appButtonsOne = new AppButtonsOne(new JButton(), appTextFieldsOne, new JFileChooser());
+        AppLabelInput appLabelInput = new AppLabelInput(new JLabel());
+        AppTextFieldsInput appTextFieldsInput = new AppTextFieldsInput(new JTextField(20));
+        AppButtonsInput appButtonsInput = new AppButtonsInput(new JButton(), appTextFieldsInput, new JFileChooser());
 
-        AppLabelTwo appLabelTwo = new AppLabelTwo(new JLabel());
-        AppTextFieldsTwo appTextFieldsTwo = new AppTextFieldsTwo(new JTextField(20));
-        AppButtonsTwo appButtonsTwo = new AppButtonsTwo(new JButton(), appTextFieldsTwo, new JFileChooser());
+        AppLabelOutput appLabelOutput = new AppLabelOutput(new JLabel());
+        AppTextFieldsOutput appTextFieldsOutput = new AppTextFieldsOutput(new JTextField(20));
+        AppButtonsOutput appButtonsOutput = new AppButtonsOutput(new JButton(), appTextFieldsOutput, new JFileChooser());
 
-        AppButtonCompress appButtonCompress = new AppButtonCompress(new JButton(), appTextFieldsOne, appTextFieldsTwo);
-        AppButtonDecompress appButtonDecompress = new AppButtonDecompress(new JButton(), appTextFieldsOne, appTextFieldsTwo);
+        AppButtonCompress appButtonCompress = new AppButtonCompress(new JButton(), appTextFieldsInput, appTextFieldsOutput);
+        AppButtonDecompress appButtonDecompress = new AppButtonDecompress(new JButton(), appTextFieldsInput, appTextFieldsOutput);
 
-        AppPanel appPanel = new AppPanel(new JPanel(), dimensions, appLabelOne, appTextFieldsOne, appButtonsOne, appLabelTwo,appTextFieldsTwo, appButtonsTwo, appButtonCompress, appButtonDecompress);
-        AppFrame appFrame = new AppFrame(new JFrame(), appPanel, dimensions);
+        AppPanel appPanel = new AppPanel(
+                new JPanel(),
+                dimensions,
+                appLabelInput,
+                appTextFieldsInput,
+                appButtonsInput,
+                appLabelOutput,
+                appTextFieldsOutput,
+                appButtonsOutput,
+                appButtonCompress,
+                appButtonDecompress,
+        new GridLayout(3, 3),
+        new FlowLayout(FlowLayout.LEFT)
+        );
+        new AppFrame(new JFrame(), appPanel, dimensions);
     }
 }
 

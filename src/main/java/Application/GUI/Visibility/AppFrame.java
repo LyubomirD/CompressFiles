@@ -21,8 +21,8 @@ public class AppFrame extends JFrame {
     }
 
     private void addComponents() {
-        setJFrame();
         jFrame.add(appPanel.getjPanel());
+        setJFrame();
     }
 
     private void setJFrame() {

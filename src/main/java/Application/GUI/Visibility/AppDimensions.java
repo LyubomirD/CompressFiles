@@ -16,11 +16,13 @@ public class AppDimensions {
         return height;
     }
 
-    public void setWidth(int width) {
+    public int setWidth(int width) {
         this.width = width;
+        return width;
     }
 
-    public void setHeight(int height) {
+    public int setHeight(int height) {
         this.height = height;
+        return height;
     }
 }

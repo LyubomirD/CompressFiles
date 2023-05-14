@@ -17,7 +17,6 @@ public class CompressFile {
         this.zipOutput = zipOutput;
 
         compress();
-        System.out.println("File has been compressed!");
     }
 
     private void compress() throws IOException {

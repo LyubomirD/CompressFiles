@@ -1,19 +1,19 @@
-package Application.GUI.Interactions.InteractionOne;
+package Application.GUI.Interactions.InteractionS.IntercationOutput;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class AppButtonsOne extends JButton implements ActionListener {
+public class AppButtonsOutput extends JButton implements ActionListener {
 
     private final JButton jButton;
     private final JFileChooser jFileChooser;
-    private final AppTextFieldsOne appTextFieldsOne;
+    private final AppTextFieldsOutput appTextFieldsOutput;
 
-    public AppButtonsOne(JButton jButton, AppTextFieldsOne appTextFieldsOne, JFileChooser jFileChooser) {
+    public AppButtonsOutput(JButton jButton, AppTextFieldsOutput appTextFieldsOutput, JFileChooser jFileChooser) {
         this.jButton = jButton;
-        this.appTextFieldsOne = appTextFieldsOne;
+        this.appTextFieldsOutput = appTextFieldsOutput;
         this.jFileChooser = jFileChooser;
 
         setJButton();
@@ -25,18 +25,17 @@ public class AppButtonsOne extends JButton implements ActionListener {
 
     private void setJButton() {
         jButton.addActionListener(this);
-        jButton.setText("Select File");
-        jButton.setBounds(10, 40, 80, 20);
+        jButton.setText("Избери изходящ файл");
         jButton.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Select File")) {
+        if (e.getActionCommand().equals("Избери изходящ файл")) {
             int result = jFileChooser.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = jFileChooser.getSelectedFile();
-                appTextFieldsOne.getjTextField().setText(selectedFile.getAbsolutePath());
+                appTextFieldsOutput.getjTextField().setText(selectedFile.getAbsolutePath());
             }
         }
     }

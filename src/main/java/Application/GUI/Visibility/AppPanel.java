@@ -1,13 +1,13 @@
 package Application.GUI.Visibility;
 
-import Application.GUI.Interactions.AppButtonCompress;
-import Application.GUI.Interactions.AppButtonDecompress;
-import Application.GUI.Interactions.InteractionOne.AppButtonsOne;
-import Application.GUI.Interactions.InteractionOne.AppLabelOne;
-import Application.GUI.Interactions.InteractionOne.AppTextFieldsOne;
-import Application.GUI.Interactions.IntercationTwo.AppButtonsTwo;
-import Application.GUI.Interactions.IntercationTwo.AppLabelTwo;
-import Application.GUI.Interactions.IntercationTwo.AppTextFieldsTwo;
+import Application.GUI.Interactions.ActionButtons.AppButtonCompress;
+import Application.GUI.Interactions.ActionButtons.AppButtonDecompress;
+import Application.GUI.Interactions.InteractionS.InteractionInput.AppButtonsInput;
+import Application.GUI.Interactions.InteractionS.InteractionInput.AppLabelInput;
+import Application.GUI.Interactions.InteractionS.InteractionInput.AppTextFieldsInput;
+import Application.GUI.Interactions.InteractionS.IntercationOutput.AppButtonsOutput;
+import Application.GUI.Interactions.InteractionS.IntercationOutput.AppLabelOutput;
+import Application.GUI.Interactions.InteractionS.IntercationOutput.AppTextFieldsOutput;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,40 +16,32 @@ public class AppPanel extends JPanel {
 
     private final JPanel jPanel;
     private final AppDimensions appDimensions;
-    private final AppLabelOne appLabelOne;
-    private final AppTextFieldsOne appTextFieldsOne;
-    private final AppLabelTwo appLabelTwo;
-    private final AppButtonsOne appButtonsOne;
-    private final AppButtonsTwo appButtonsTwo;
-    private final AppTextFieldsTwo appTextFieldsTwo;
+    private final AppLabelInput appLabelInput;
+    private final AppTextFieldsInput appTextFieldsInput;
+    private final AppLabelOutput appLabelOutput;
+    private final AppButtonsInput appButtonsInput;
+    private final AppButtonsOutput appButtonsOutput;
+    private final AppTextFieldsOutput appTextFieldsOutput;
     private final AppButtonCompress appButtonCompress;
     private final AppButtonDecompress appButtonDecompress;
+    private final GridLayout gridLayout;
+    private final FlowLayout flowLayout;
 
-    public AppPanel(JPanel jPanel, AppDimensions appDimensions, AppLabelOne appLabelOne, AppTextFieldsOne appTextFieldsOne, AppButtonsOne appButtonsOne, AppLabelTwo appLabelTwo, AppTextFieldsTwo appTextFieldsTwo, AppButtonsTwo appButtonsTwo, AppButtonCompress appButtonCompress, AppButtonDecompress appButtonDecompress) {
+    public AppPanel(JPanel jPanel, AppDimensions appDimensions, AppLabelInput appLabelInput, AppTextFieldsInput appTextFieldsInput, AppButtonsInput appButtonsInput, AppLabelOutput appLabelOutput, AppTextFieldsOutput appTextFieldsOutput, AppButtonsOutput appButtonsOutput, AppButtonCompress appButtonCompress, AppButtonDecompress appButtonDecompress, GridLayout gridLayout, FlowLayout flowLayout) {
         this.jPanel = jPanel;
         this.appDimensions = appDimensions;
-        this.appLabelOne = appLabelOne;
-        this.appTextFieldsOne = appTextFieldsOne;
-        this.appLabelTwo = appLabelTwo;
-        this.appButtonsOne = appButtonsOne;
-        this.appButtonsTwo = appButtonsTwo;
-        this.appTextFieldsTwo = appTextFieldsTwo;
+        this.appLabelInput = appLabelInput;
+        this.appTextFieldsInput = appTextFieldsInput;
+        this.appLabelOutput = appLabelOutput;
+        this.appButtonsInput = appButtonsInput;
+        this.appButtonsOutput = appButtonsOutput;
+        this.appTextFieldsOutput = appTextFieldsOutput;
         this.appButtonCompress = appButtonCompress;
         this.appButtonDecompress = appButtonDecompress;
+        this.gridLayout = gridLayout;
+        this.flowLayout = flowLayout;
 
-        addComponents();
-    }
-
-    private void addComponents() {
         setJPanel();
-        jPanel.add(appLabelOne.getjLabel());
-        jPanel.add(appTextFieldsOne.getjTextField());
-        jPanel.add(appButtonsOne.getjButton());
-        jPanel.add(appLabelTwo.getjLabel());
-        jPanel.add(appTextFieldsTwo.getjTextField());
-        jPanel.add(appButtonsTwo.getjButton());
-        jPanel.add(appButtonCompress.getjButton());
-        jPanel.add(appButtonDecompress.getjButton());
     }
 
     public JPanel getjPanel() {
@@ -58,8 +50,26 @@ public class AppPanel extends JPanel {
 
     private void setJPanel() {
         jPanel.setSize(appDimensions.getWidth(), appDimensions.getHeight());
-        jPanel.setLayout(null);
+        jPanel.setLayout(gridLayout);
+        jPanel.setLayout(flowLayout);
         jPanel.setBackground(Color.GRAY);
         jPanel.setVisible(true);
+
+        addComponents();
     }
+
+    private void addComponents() {
+        jPanel.add(appLabelInput.getjLabel());
+        jPanel.add(appTextFieldsInput.getjTextField());
+        jPanel.add(appButtonsInput.getjButton());
+
+        jPanel.add(appLabelOutput.getjLabel());
+        jPanel.add(appTextFieldsOutput.getjTextField());
+        jPanel.add(appButtonsOutput.getjButton());
+
+        jPanel.add(appButtonCompress.getjButton());
+        jPanel.add(appButtonDecompress.getjButton());
+    }
+
 }
+
