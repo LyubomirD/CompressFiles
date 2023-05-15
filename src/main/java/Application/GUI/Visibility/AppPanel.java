@@ -24,10 +24,10 @@ public class AppPanel extends JPanel {
     private final AppTextFieldsOutput appTextFieldsOutput;
     private final AppButtonCompress appButtonCompress;
     private final AppButtonDecompress appButtonDecompress;
-    private final GridLayout gridLayout;
     private final FlowLayout flowLayout;
+    private final Signature signature;
 
-    public AppPanel(JPanel jPanel, AppDimensions appDimensions, AppLabelInput appLabelInput, AppTextFieldsInput appTextFieldsInput, AppButtonsInput appButtonsInput, AppLabelOutput appLabelOutput, AppTextFieldsOutput appTextFieldsOutput, AppButtonsOutput appButtonsOutput, AppButtonCompress appButtonCompress, AppButtonDecompress appButtonDecompress, GridLayout gridLayout, FlowLayout flowLayout) {
+    public AppPanel(JPanel jPanel, AppDimensions appDimensions, AppLabelInput appLabelInput, AppTextFieldsInput appTextFieldsInput, AppButtonsInput appButtonsInput, AppLabelOutput appLabelOutput, AppTextFieldsOutput appTextFieldsOutput, AppButtonsOutput appButtonsOutput, AppButtonCompress appButtonCompress, AppButtonDecompress appButtonDecompress, FlowLayout flowLayout, Signature signature) {
         this.jPanel = jPanel;
         this.appDimensions = appDimensions;
         this.appLabelInput = appLabelInput;
@@ -38,8 +38,8 @@ public class AppPanel extends JPanel {
         this.appTextFieldsOutput = appTextFieldsOutput;
         this.appButtonCompress = appButtonCompress;
         this.appButtonDecompress = appButtonDecompress;
-        this.gridLayout = gridLayout;
         this.flowLayout = flowLayout;
+        this.signature = signature;
 
         setJPanel();
     }
@@ -50,9 +50,8 @@ public class AppPanel extends JPanel {
 
     private void setJPanel() {
         jPanel.setSize(appDimensions.getWidth(), appDimensions.getHeight());
-        jPanel.setLayout(gridLayout);
         jPanel.setLayout(flowLayout);
-        jPanel.setBackground(Color.GRAY);
+        jPanel.setBackground(Color.lightGray);
         jPanel.setVisible(true);
 
         addComponents();
@@ -69,6 +68,8 @@ public class AppPanel extends JPanel {
 
         jPanel.add(appButtonCompress.getjButton());
         jPanel.add(appButtonDecompress.getjButton());
+
+        jPanel.add(signature.getjLabel());
     }
 
 }

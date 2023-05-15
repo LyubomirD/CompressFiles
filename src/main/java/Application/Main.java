@@ -11,6 +11,7 @@ import Application.GUI.Interactions.InteractionS.IntercationOutput.AppTextFields
 import Application.GUI.Visibility.AppDimensions;
 import Application.GUI.Visibility.AppFrame;
 import Application.GUI.Visibility.AppPanel;
+import Application.GUI.Visibility.Signature;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +19,7 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
-        AppDimensions dimensions = new AppDimensions(280, 275);
+        AppDimensions dimensions = new AppDimensions(280, 300);
 
         AppLabelInput appLabelInput = new AppLabelInput(new JLabel());
         AppTextFieldsInput appTextFieldsInput = new AppTextFieldsInput(new JTextField(20));
@@ -31,6 +32,8 @@ public class Main {
         AppButtonCompress appButtonCompress = new AppButtonCompress(new JButton(), appTextFieldsInput, appTextFieldsOutput);
         AppButtonDecompress appButtonDecompress = new AppButtonDecompress(new JButton(), appTextFieldsInput, appTextFieldsOutput);
 
+        Signature signature = new Signature(new JLabel());
+
         AppPanel appPanel = new AppPanel(
                 new JPanel(),
                 dimensions,
@@ -42,8 +45,8 @@ public class Main {
                 appButtonsOutput,
                 appButtonCompress,
                 appButtonDecompress,
-        new GridLayout(3, 3),
-        new FlowLayout(FlowLayout.LEFT)
+                new FlowLayout(),
+                signature
         );
         new AppFrame(new JFrame(), appPanel, dimensions);
     }
