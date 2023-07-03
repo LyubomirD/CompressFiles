@@ -38,7 +38,7 @@ public class AppPanel extends JPanel {
         this.appTextFieldsOutput = appTextFieldsOutput;
         this.appButtonCompress = appButtonCompress;
         this.appButtonDecompress = appButtonDecompress;
-        this.flowLayout = flowLayout;
+        this.flowLayout = flowLayout;z
         this.signature = signature;
 
         setJPanel();
